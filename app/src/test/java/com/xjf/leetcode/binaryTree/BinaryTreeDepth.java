@@ -382,5 +382,122 @@ class BinaryTreeDepth {
     //</editor-fold>
 
 
+    //<editor-fold des = "填充每个节点的下一个右侧节点指针(针对于完全二叉树)">
+
+    public TreeNode connectComplete(TreeNode root) {
+        if(root ==null) return root;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i=0;i<size;i++) {
+                TreeNode tNode = queue.poll();
+                if(i  <size-1) {
+                    tNode.next = queue.peek();
+                }
+
+                if(tNode.left !=null) queue.add(tNode.left);
+                if(tNode.right !=null) queue.add(tNode.right);
+            }
+        }
+        return root;
+    }
+
+
+    /**
+     * while 循环
+     * @param root
+     * @return
+     */
+    public TreeNode connectCompleteByWhile(TreeNode root) {
+        if(root == null) return root;
+        TreeNode leftMost = root;
+        while(leftMost.left !=null) {
+            TreeNode head = leftMost;
+            while(head != null) {
+                head.left.next = head.right;
+                if(head.next !=null) {
+                    head.right.next = head.next.left;
+                }
+                head = head.next;
+            }
+            leftMost = leftMost.left;
+        }
+
+        return root;
+    }
+
+
+    /**
+     * 递归
+     * @param root
+     * @return
+     */
+    public TreeNode connectCompleteByRecursive(TreeNode root) {
+        if(root == null) return root;
+        if(root.left !=null) {
+            root.left.next = root.right;
+            root.right.next = root.next!=null?root.next.left:null;
+            connectCompleteByRecursive(root.left);
+            connectCompleteByRecursive(root.right);
+        }
+        return root;
+    }
+
+
+
+    //</editor-fold>
+
+
+
+    //<editor-fold des ="填充每一个节点的下一个节点针对于二叉树">
+    public TreeNode connectTreeNode(TreeNode root) {
+        if(root == null) return root;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i=0;i<size;i++) {
+                TreeNode tNode = queue.poll();
+                if(i<size-1) {
+                    tNode.next = queue.peek();
+                }
+                if(tNode.left !=null) queue.add(tNode.left);
+                if(tNode.right!=null) queue.add(tNode.right);
+            }
+        }
+
+        return root;
+    }
+
+    public TreeNode connectTreeNodeByWhile(TreeNode root) {
+        if(root == null) return root;
+        TreeNode cur = root;
+        while(cur !=null) {
+            TreeNode dummy = new TreeNode(0);
+            TreeNode pre = dummy;
+            while(cur !=null) {
+                if(cur.left!=null) {
+                    pre.next = cur.left;
+                    pre = pre.next;
+                }
+                if(cur.right!=null) {
+                    pre.next = cur.right;
+                    pre = pre.next;
+                }
+                cur = cur.next;
+            }
+            cur = dummy.next;
+        }
+
+        return root;
+
+    }
+
+
+    //</editor-fold>
+
+
+
 
 }
