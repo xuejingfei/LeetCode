@@ -293,6 +293,8 @@ class BinaryTreeDepth {
     //</editor-fold>
 
 
+
+    //<editor-fold des = "二叉树广度右视图遍历">
     /**
      * 广度遍历
      * @param root
@@ -352,7 +354,32 @@ class BinaryTreeDepth {
         dfs(root.right,level+1,counts,sums);
     }
 
+    //</editor-fold>
 
+
+    //<editor-fold des = "查找每个树行中的最大值">
+
+    public List<Integer> findMax(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(root == null) return result;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int max = Integer.MIN_VALUE;
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i = 0;i<size;i++) {
+                TreeNode tNode = queue.pop();
+                max = Math.max(max,tNode.val);
+                if(tNode.left !=null) queue.add(tNode.left);
+                if(tNode.right !=null) queue.add(tNode.right);
+            }
+            result.add(max);
+            max = Integer.MIN_VALUE;
+        }
+        return result;
+    }
+
+    //</editor-fold>
 
 
 
