@@ -15,6 +15,12 @@ import java.util.List;
 class NTreeOrder {
 
     //<editor-fold des = "N叉树的层序遍历">
+
+    /**
+     * 迭代法
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrderN(Node root) {
         List<List<Integer>> result = new ArrayList<>();
         LinkedList<Node> queue = new LinkedList<>();
@@ -36,7 +42,7 @@ class NTreeOrder {
 
 
     /**
-     *
+     * 递归法
      * @param root
      * @return
      */

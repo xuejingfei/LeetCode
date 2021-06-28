@@ -5,4 +5,5 @@
 5.Iteration
 6.poll->返回空  peer->不移走  pop->抛出异常
 7.recursive 递归做法
+8.LinkedList: push pop 针对于栈使用   offer/poll/take 针对于队列
 
