@@ -9,11 +9,11 @@ import java.util.Queue;
  * E-mail: xue.jingfei@immomo.com
  * Date: 6/29/21 12:14 PM
  */
-class Stack<E> implements IStack<E>{
+class StackByTwoQueue<E> implements IStack<E>{
     private Queue<E> queue;
     private Queue<E> backupQueue;
 
-    private Stack(){
+    private StackByTwoQueue(){
         queue = new LinkedList<>();
     }
 
