@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Description:
- * 读写锁:
+ * Description: 读写锁:
  * 1.读读共享锁
- * 2.写读，写写，读写都需要同步
+ * 2.写读，写写，读写互斥
+ * 3.
  * Author: xuejingfei
  * E-mail: xue.jingfei@immomo.com
- * Date: 7/23/21 6:29 PM
+ * Date:7/23/21 6:29 PM
  */
 class ReadWriteLock {
     private final Map<Thread, Integer> readingThreads = new HashMap<>();
@@ -18,11 +18,8 @@ class ReadWriteLock {
     private int writeRequests;
     private Thread writeThread;
 
-
     /**
      * 开始读
-     *
-     * @throws InterruptedException
      */
     public synchronized void lockRead() throws InterruptedException {
         Thread callingThread = Thread.currentThread();
@@ -48,9 +45,10 @@ class ReadWriteLock {
     }
 
     private boolean canReadAccess(Thread thread) {
-        if (write > 0) return false;
-        if (isReading(thread)) return true;
-        if (writeRequests > 0) return false;
+        if (writeThread == thread) return true; //写读重入
+        if (write > 0) return false; //写读互斥
+        if (isReading(thread)) return true;//读读重入
+        if (writeRequests > 0) return false;//写读互斥
         return true;
     }
 
@@ -64,9 +62,6 @@ class ReadWriteLock {
 
     /**
      * 是否正在处于读
-     *
-     * @param thread
-     * @return
      */
     private boolean isReading(Thread thread) {
         return readingThreads.get(thread) != null;
@@ -85,24 +80,19 @@ class ReadWriteLock {
 
     public synchronized void unLockWrite() {
         write--;
+        if (write == 0) {
+            writeThread = null;
+        }
         notifyAll();
     }
 
+
     private boolean canWriteAccess(Thread thread) {
-        if(hasReader()) return true;
-        if(writeThread == null) return true;
-        if(isWriting(thread)) return false;
+        if (readingThreads.size() == 1 && readingThreads.get(thread) !=null) return true;//读写重入
+        if (readingThreads.size() > 0) return false; //读写互斥
+        if (writeThread == null) return true;//写写互斥
+        if (thread == writeThread) return true;//写写重入
         return true;
-    }
-
-
-    private boolean isWriting(Thread callingThread) {
-        return writeThread == callingThread;
-    }
-
-
-    private boolean hasReader() {
-        return readingThreads.size() > 0;
     }
 
 }
