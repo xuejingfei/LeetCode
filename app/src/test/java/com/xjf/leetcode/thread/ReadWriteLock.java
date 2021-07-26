@@ -92,7 +92,7 @@ class ReadWriteLock {
         if (readingThreads.size() > 0) return false; //读写互斥
         if (writeThread == null) return true;//写写互斥
         if (thread == writeThread) return true;//写写重入
-        return true;
+        return false;
     }
 
 }

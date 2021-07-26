@@ -7,5 +7,6 @@
 7.recursive 递归做法
 8.LinkedList: push pop 针对于栈使用   offer/poll/take 针对于队列
 9.implements
+10.intersection //相交
 
 
