@@ -1,4 +1,4 @@
-package com.xjf.leetcode;
+package com.xjf.leetcode.String;
 
 import org.junit.Test;
 
@@ -42,10 +42,6 @@ public class GetLongestStr {
         }
         return result;
     }
-
-
-
-
 
 
 }
