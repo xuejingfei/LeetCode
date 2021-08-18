@@ -81,6 +81,7 @@ class ReadWriteLock {
         }
         writeRequests--;
         write++;
+        writeThread = callingThread;
     }
 
     public synchronized void unLockWrite() {
