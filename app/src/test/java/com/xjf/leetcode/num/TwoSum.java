@@ -1,4 +1,4 @@
-package com.xjf.leetcode;
+package com.xjf.leetcode.num;
 
 import org.junit.Test;
 

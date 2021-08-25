@@ -1,4 +1,4 @@
-package com.xjf.leetcode;
+package com.xjf.leetcode.LinkedList;
 
 import org.junit.Test;
 
@@ -10,14 +10,6 @@ import org.junit.Test;
  */
 public class ListNodeSum {
 
-    class ListNode {
-        int value;
-        ListNode next;
-
-        ListNode(int value) {
-            this.value = value;
-        }
-    }
 
     /**
      * https://leetcode-cn.com/problems/add-two-numbers/
