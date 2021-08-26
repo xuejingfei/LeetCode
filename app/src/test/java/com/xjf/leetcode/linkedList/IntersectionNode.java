@@ -1,5 +1,7 @@
 package com.xjf.leetcode.linkedList;
 
+import com.xjf.leetcode.LinkedList.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 

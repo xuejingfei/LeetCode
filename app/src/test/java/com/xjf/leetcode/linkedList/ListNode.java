@@ -1,17 +1,16 @@
-package com.xjf.leetcode.linkedList;
+package com.xjf.leetcode.LinkedList;
 
 /**
- * Author：xuejingfei
- *
- * Description：
- *
- * Date：2021/7/24 20:23
+ * Description:
+ * Author: xuejingfei
+ * E-mail: xue.jingfei@immomo.com
+ * Date: 8/10/21 11:53 AM
  */
-class ListNode {
-    int val;
-    ListNode next;
+public class ListNode {
+     public ListNode next;
+     public  int value;
 
-    ListNode(int x) {
-        this.val = x;
-    }
+     public ListNode(int value) {
+          this.value = value;
+     }
 }
