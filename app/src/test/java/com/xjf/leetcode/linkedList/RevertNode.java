@@ -1,4 +1,4 @@
-package com.xjf.leetcode.LinkedList;
+package com.xjf.leetcode.linkedList;
 
 /**
  * Description:反转单列表

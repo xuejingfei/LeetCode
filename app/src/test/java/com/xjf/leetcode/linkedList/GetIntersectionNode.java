@@ -1,6 +1,4 @@
-package com.xjf.leetcode.LinkedList;
-
-import org.junit.Test;
+package com.xjf.leetcode.linkedList;
 
 import java.util.HashSet;
 import java.util.Set;

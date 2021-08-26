@@ -1,4 +1,4 @@
-package com.xjf.leetcode.LinkedList;
+package com.xjf.leetcode.linkedList;
 
 /**
  * Description:
@@ -6,11 +6,11 @@ package com.xjf.leetcode.LinkedList;
  * E-mail: xue.jingfei@immomo.com
  * Date: 8/10/21 11:53 AM
  */
-public class ListNode {
-     public ListNode next;
-     public int value;
+class ListNode {
+     ListNode next;
+     int value;
 
-     public ListNode(int x) {
-          this.value = x;
+     public ListNode(int value) {
+          this.value = value;
      }
 }
