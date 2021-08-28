@@ -24,7 +24,7 @@ class RevertNode {
             pre = curr;
             curr = next;
         }
-        return curr;
+        return pre;
     }
 
 
