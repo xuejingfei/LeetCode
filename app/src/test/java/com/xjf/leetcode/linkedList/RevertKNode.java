@@ -13,6 +13,7 @@ class RevertKNode {
         if (head == null || head.next == null) return head;
         // 定义一个假的节点
         ListNode dump = new ListNode(-1);
+        dump.next = head;
         ListNode pre = dump;
         ListNode end = dump;
         while (end.next != null) {
