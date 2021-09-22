@@ -16,7 +16,6 @@ public class ListNodeSum {
      */
     @Test
     public void main() {
-        addTwoNumbers(new ListNode(1),new ListNode(2));
     }
 
 
@@ -25,35 +24,27 @@ public class ListNodeSum {
      * 空间复杂度0（1）
      * @param node1
      * @param node2
-     * @return
+     * @return ListNode
      */
     public ListNode addTwoNumbers(ListNode node1, ListNode node2) {
-        ListNode head = null, tail = null;
+        ListNode dum = new ListNode(-1);
+        ListNode tail = dum;
         int carry = 0;
         while (node1 != null || node2 != null) {
-            int value1 = node1 != null ? node1.value : 0;
-            int value2 = node2 != null ? node2.value : 0;
+            int value1 = node1 != null ? node1.val : 0;
+            int value2 = node2 != null ? node2.val : 0;
             int sum = value1 + value2 + carry;
-            ListNode node  = new ListNode(sum % 10);
-            if (head == null) {
-                head = tail = node;
-            } else {
-                tail.next = node;
-                tail = tail.next;
-            }
+            tail.next = new ListNode(sum % 10);;
+            tail = tail.next;
             carry = sum / 10;
-            if (node1 != null) {
-                node1 = node1.next;
-            }
-            if (node2 != null) {
-                node2 = node2.next;
-            }
+            if (node1 != null) node1 = node1.next;
+            if (node2 != null) node2 = node2.next;
         }
 
         if (carry > 0) {
             tail.next = new ListNode(carry);
         }
-        return head;
+        return dum.next;
     }
 
 }

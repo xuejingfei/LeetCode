@@ -8,9 +8,9 @@ package com.xjf.leetcode.linkedList;
  */
 class ListNode {
      ListNode next;
-     int value;
+     int val;
 
-     public ListNode(int value) {
-          this.value = value;
+     public ListNode(int val) {
+          this.val = val;
      }
 }
