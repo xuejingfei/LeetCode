@@ -31,8 +31,8 @@ public class ListNodeSum {
         ListNode head = null, tail = null;
         int carry = 0;
         while (node1 != null || node2 != null) {
-            int value1 = node1 != null ? node1.value : 0;
-            int value2 = node2 != null ? node2.value : 0;
+            int value1 = node1 != null ? node1.val : 0;
+            int value2 = node2 != null ? node2.val : 0;
             int sum = value1 + value2 + carry;
             ListNode node  = new ListNode(sum % 10);
             if (head == null) {
