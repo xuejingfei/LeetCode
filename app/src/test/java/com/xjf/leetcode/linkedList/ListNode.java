@@ -13,4 +13,9 @@ class ListNode {
      public ListNode(int val) {
           this.val = val;
      }
+
+     public ListNode(int val, ListNode node) {
+          this.val = val;
+
+     }
 }
