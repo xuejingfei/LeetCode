@@ -38,16 +38,16 @@ class GetKNodeFromList {
      * @return
      */
     private ListNode getKNodeFromListByPoint(ListNode head, int k) {
-        ListNode head1 = head;
-        ListNode head2 = head;
-        for (int i = 0; i <= k; i++) {
-            head1 = head1.next;
+        ListNode fast = head;
+        ListNode slow = head;
+        for (int i = 0; i < k; i++) {
+            fast = fast.next;
         }
 
-        while (head1.next != null) {
-            head2 = head2.next;
-            head1 = head1.next;
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        return head2;
+        return slow;
     }
 }
